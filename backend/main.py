@@ -35,5 +35,9 @@ def create_grievance(grievance: Grievance):
     }
 
     grievances.append(record)
-
     return record
+
+
+@app.get("/grievances")
+def list_grievances():
+    return grievances
