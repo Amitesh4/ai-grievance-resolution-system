@@ -38,3 +38,8 @@ def assign_sla(priority: str) -> str:
         deadline = now + timedelta(days=7)
 
     return deadline.isoformat()
+
+
+def check_escalation(sla_deadline: str) -> bool:
+    deadline = datetime.fromisoformat(sla_deadline)
+    return datetime.utcnow() > deadline
