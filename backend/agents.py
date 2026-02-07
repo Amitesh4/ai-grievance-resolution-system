@@ -11,3 +11,14 @@ def classify_department(text: str) -> str:
         return "Sanitation Department"
 
     return "General Administration"
+
+
+def detect_priority(text: str) -> str:
+    text = text.lower()
+
+    if "accident" in text or "fire" in text or "hospital" in text:
+        return "High"
+    if "not working" in text or "broken" in text:
+        return "Medium"
+
+    return "Low"
