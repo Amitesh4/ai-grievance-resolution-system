@@ -6,6 +6,7 @@ from backend.agents import (
     assign_sla,
     check_escalation
 )
+from backend.storage import grievances
 
 app = FastAPI(title="AI Grievance Resolution System")
 
@@ -22,11 +23,17 @@ def create_grievance(grievance: Grievance):
     sla_deadline = assign_sla(priority)
     escalated = check_escalation(sla_deadline)
 
-    return {
-        "message": "Grievance received",
+    record = {
+        "title": grievance.title,
+        "description": grievance.description,
+        "location": grievance.location,
         "department": department,
         "priority": priority,
         "sla_deadline": sla_deadline,
         "escalated": escalated,
         "status": "submitted"
     }
+
+    grievances.append(record)
+
+    return record
