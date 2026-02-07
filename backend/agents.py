@@ -1,3 +1,6 @@
+from datetime import datetime, timedelta
+
+
 def classify_department(text: str) -> str:
     text = text.lower()
 
@@ -22,3 +25,16 @@ def detect_priority(text: str) -> str:
         return "Medium"
 
     return "Low"
+
+
+def assign_sla(priority: str) -> str:
+    now = datetime.utcnow()
+
+    if priority == "High":
+        deadline = now + timedelta(hours=24)
+    elif priority == "Medium":
+        deadline = now + timedelta(days=3)
+    else:
+        deadline = now + timedelta(days=7)
+
+    return deadline.isoformat()
