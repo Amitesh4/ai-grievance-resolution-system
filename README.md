@@ -1,2 +1,7 @@
-# ai-grievance-resolution-system
-AI agent–based system to automatically classify, prioritize, and route public grievances
+# AI Agent–Based Public Grievance Resolution System
+
+This project aims to automate the handling of public grievances using
+an AI agent–based architecture.
+
+Status: 🚧 In progress
+
