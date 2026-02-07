@@ -1,4 +1,5 @@
 from fastapi import FastAPI
+from backend.models import Grievance
 
 app = FastAPI(title="AI Grievance Resolution System")
 
@@ -9,7 +10,7 @@ def health_check():
 
 
 @app.post("/grievances")
-def create_grievance(grievance: dict):
+def create_grievance(grievance: Grievance):
     return {
         "message": "Grievance received",
         "data": grievance,
